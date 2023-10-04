@@ -41,10 +41,11 @@
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                                 <div class="text-center">
-                                    <form method="post" action="/">
+                                    <form method="post" action="/putCart">
                                         <input type="hidden" name="price"value="5" >
                                         <input type="hidden" name="name" value="Snake">
                                         <input type="hidden" name="img"  value="images/snake.jpg">
+                                        <input type="hidden" name="loggedUser" value ="<%= User.email %>">
                                         <input type="submit" class="btn btn-outline-dark mt-auto" name="add" value="Add to cart">
                                     </form>
                                 </div>
@@ -78,10 +79,11 @@
                             <!-- Product actions-->
                             <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
                             <div class="text-center">
-                                <form method="post" action="/">
+                                <form method="post" action="/putCart">
                                     <input type="hidden" name="price" value="2">
                                     <input type="hidden" name="name" value="Pong">
                                     <input type="hidden" name="img"  value="images/pong.png">
+                                    <input type="hidden" name="loggedUser" value ="<%= User.email %>">
                                     <input type="submit" class="btn btn-outline-dark mt-auto" name="add" value="Add to cart">
                                 </form>
                             </div>

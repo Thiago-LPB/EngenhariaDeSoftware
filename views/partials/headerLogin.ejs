@@ -21,7 +21,31 @@
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0 ms-lg-4">
-                        <li class="nav-item"><a class="nav-link active" aria-current="page" href="/">Home</a></li>
+                        
+                            
+                            <li class="nav-item">
+
+                                            <a class="nav-link active" aria-current="page">
+                                               <form method="post" action="/login">
+                                    <input type="hidden" name="loggedUser" value="<%= User.email %>">
+                                    <button type="submit" class="nav-link" 
+                                    style="background:none;
+                                    border:none;
+                                    margin:0;
+                                    padding:0;
+                                    cursor: pointer;">
+                                                Home</button>
+                                            </form>
+                                            </a>
+
+                                    
+                                    
+                                
+                                
+                            
+                            </li>
+                        
+                        
                         <li class="nav-item"><a class="nav-link" href="#!">
                           <form action="/logout" method="post">
                                   <button type="submit" class="nav-link" 
@@ -35,6 +59,7 @@
                        </li>
                        <li class="nav-item"><a class="nav-link" href="#!">
                         <form action="/mygames" method="post">
+                                <input type="hidden" name="loggedUser" value ="<%= User.email %>">
                                 <button type="submit" class="nav-link" 
                                 style="background:none;
                                 border:none;
@@ -46,6 +71,7 @@
                      </li>
                     </ul>
                     <form class="d-flex" method="post" action="/cart">
+                        <input type="hidden" name="loggedUser" value ="<%= User.email %>">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
