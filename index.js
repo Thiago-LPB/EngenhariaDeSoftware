@@ -64,15 +64,14 @@ app.post("/login", (req,res)=>{
     console.log(req.body["loggedUser"]);
 
     if(loggedUser.password === req.body["password"] && req.body["password"]){
-        res.render("login.ejs",{User: loggedUser});
+        res.render("login.ejs",{User: loggedUser.email});
         loggedUser = null;
     }else{
        
         if(req.body["loggedUser"]){
             
-            let currentUser = searchUsers(users, req.body["loggedUser"]);
-            res.render("login.ejs", {User:currentUser});
-            currentUser = null;
+            res.render("login.ejs", {User:req.body["loggedUser"]});
+            
         
 
         }else{
@@ -85,10 +84,9 @@ app.post("/login", (req,res)=>{
 
 
 app.post("/putCart",(req, res) => {
-    console.log(req.body["loggedUser"])
     let currentUser = searchUsers(users, req.body["loggedUser"]);
     currentUser.cart.push(new Game(req.body["name"],req.body["price"],req.body["img"]));
-    res.render("login.ejs",{User:currentUser});
+    res.render("login.ejs",{User:req.body["loggedUser"]});
     currentUser = null;
     
 });
@@ -96,16 +94,15 @@ app.post("/logOut", (req,res)=>{
     res.redirect("/");
 });
 app.post("/mygames",(req,res)=>{
-    let currentUser = searchUsers(users, req.body["loggedUser"]);
-    res.render("games.ejs", {User: currentUser});
-    currentUser = null;
+
+    res.render("games.ejs", {User: req.body["loggedUser"]});
     
 });
 app.post("/cart",(req,res)=>{
     let currentUser = searchUsers(users, req.body["loggedUser"]);
-    res.render("cart.ejs", {User:currentUser,i:0});
+    res.render("cart.ejs", {cart:currentUser.cart,i:0,User:req.body["loggedUser"], cartPrice: currentUser.cartPrice()});
     currentUser = null;
-    
+
 });
 app.listen(port, function(){
 console.log("Listening on port " + port);

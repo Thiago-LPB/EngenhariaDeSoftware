@@ -27,7 +27,7 @@
 
                                             <a class="nav-link active" aria-current="page">
                                                <form method="post" action="/login">
-                                    <input type="hidden" name="loggedUser" value="<%= User.email %>">
+                                    <input type="hidden" name="loggedUser" value="<%= User %>">
                                     <button type="submit" class="nav-link" 
                                     style="background:none;
                                     border:none;
@@ -59,7 +59,7 @@
                        </li>
                        <li class="nav-item"><a class="nav-link" href="#!">
                         <form action="/mygames" method="post">
-                                <input type="hidden" name="loggedUser" value ="<%= User.email %>">
+                                <input type="hidden" name="loggedUser" value ="<%= User %>">
                                 <button type="submit" class="nav-link" 
                                 style="background:none;
                                 border:none;
@@ -71,7 +71,7 @@
                      </li>
                     </ul>
                     <form class="d-flex" method="post" action="/cart">
-                        <input type="hidden" name="loggedUser" value ="<%= User.email %>">
+                        <input type="hidden" name="loggedUser" value ="<%= User %>">
                         <button class="btn btn-outline-dark" type="submit">
                             <i class="bi-cart-fill me-1"></i>
                             Cart
