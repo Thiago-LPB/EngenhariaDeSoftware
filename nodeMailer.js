@@ -16,9 +16,7 @@ static transporter = nodemailer.createTransport({
     pass: 'email password'
   }
 });
-static teste(){
-    console.log("Importado com sucesso!");
-}
+
 send(){
     var mailOptions = {
     from: Email.sender,
