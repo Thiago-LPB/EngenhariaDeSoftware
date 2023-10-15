@@ -80,7 +80,7 @@ app.post("/signUp",(req,res)=>{
 
 app.post("/confirmEmail",(req,res)=>{
     
-    if(req.body["confirm-email"] == req.body["a"]){
+    if(req.body["confirm-email"] == req.body["key"]){
         users.push(new User(req.body["email"],req.body["password"],[],[],[], 50));
     }
     res.redirect("/");
